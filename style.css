@@ -1,12 +1,6 @@
-/* Import Font Modern */
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
 
-*{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Poppins', sans-serif;
-}
+*{ margin: 0; padding: 0; box-sizing: border-box; font-family: 'Poppins', sans-serif; }
 
 :root {
     --primary-green: #1e5128;
@@ -17,129 +11,67 @@
     --transition: all 0.5s ease;
 }
 
-body {
-    background: var(--bg-light);
-    color: var(--text-dark);
-    transition: var(--transition);
-    line-height: 1.6;
-}
+body { background: var(--bg-light); color: var(--text-dark); transition: var(--transition); line-height: 1.6; }
 
-/* NAVBAR */
 nav {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 15px 10%;
-    background: #111;
-    color: white;
-    position: sticky;
-    top: 0;
-    z-index: 1000;
+    display: flex; justify-content: space-between; align-items: center;
+    padding: 15px 10%; background: #111; color: white; position: sticky; top: 0; z-index: 1000;
 }
 
-nav ul {
-    display: flex;
-    gap: 20px;
-    list-style: none;
-}
-
-nav a {
-    color: white;
-    text-decoration: none;
-    transition: 0.3s;
-}
-
+nav ul { display: flex; gap: 20px; list-style: none; }
+nav a { color: white; text-decoration: none; transition: 0.3s; }
 nav a:hover { color: var(--accent-yellow); }
 
-/* HERO SECTION */
 .hero {
-    text-align: center;
-    padding: 120px 20px;
+    text-align: center; padding: 120px 20px;
     background: linear-gradient(135deg, var(--primary-green), var(--light-green));
-    color: white;
-    clip-path: ellipse(150% 100% at 50% 0%);
+    color: white; clip-path: ellipse(150% 100% at 50% 0%);
 }
 
 .profile {
-    width: 150px;
-    height: 150px;
-    object-fit: cover;
-    border-radius: 50%;
-    margin-bottom: 20px;
-    border: 4px solid rgba(255,255,255,0.3);
-    transition: transform 0.5s;
+    width: 150px; height: 150px; object-fit: cover; border-radius: 50%;
+    margin-bottom: 20px; border: 4px solid rgba(255,255,255,0.3); transition: 0.5s;
 }
 
 .profile:hover { transform: scale(1.1); }
 
 .btn {
-    display: inline-block;
-    margin-top: 20px;
-    padding: 12px 30px;
-    background: var(--accent-yellow);
-    color: var(--primary-green);
-    text-decoration: none;
-    border-radius: 50px;
-    font-weight: 600;
-    transition: 0.3s ease;
+    display: inline-block; margin-top: 20px; padding: 12px 30px;
+    background: var(--accent-yellow); color: var(--primary-green);
+    text-decoration: none; border-radius: 50px; font-weight: 600; transition: 0.3s;
 }
 
-/* TIMELINE & ACHIEVEMENTS */
 section { padding: 80px 10%; }
 
 .timeline-item {
-    background: white;
-    padding: 25px;
-    margin: 20px 0;
-    border-left: 6px solid var(--primary-green);
-    border-radius: 8px;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
-    transition: var(--transition);
+    background: white; padding: 25px; margin: 20px 0;
+    border-left: 6px solid var(--primary-green); border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05); transition: var(--transition);
 }
 
-/* BUTTON GROUP UNTUK PDF */
-.button-group {
-    display: flex;
-    gap: 10px;
-    margin-top: 15px;
-    flex-wrap: wrap;
-}
+.button-group { display: flex; gap: 10px; margin-top: 15px; flex-wrap: wrap; }
 
 .btn-sm {
-    display: inline-block;
-    padding: 8px 16px;
-    background: var(--primary-green);
-    color: white;
-    text-decoration: none;
-    border-radius: 5px;
-    font-size: 0.85rem;
-    font-weight: 600;
-    transition: 0.3s ease;
+    display: inline-block; padding: 8px 16px; background: var(--primary-green);
+    color: white; text-decoration: none; border-radius: 5px; font-size: 0.85rem; font-weight: 600; transition: 0.3s;
 }
 
 .btn-naskah { background: var(--light-green); }
+.btn-sm:hover { background: var(--accent-yellow); color: var(--primary-green); transform: translateY(-2px); }
 
-.btn-sm:hover {
-    background: var(--accent-yellow);
-    color: var(--primary-green);
-    transform: translateY(-2px);
-}
+.skill { margin-top: 20px; }
+.bar { background: #ddd; height: 12px; border-radius: 10px; overflow: hidden; margin-top: 8px; }
+.bar span { display: block; height: 100%; background: var(--light-green); }
 
-/* DARK MODE CLASS */
 .dark { background: #121212; color: #f4f4f4; }
-.dark .timeline-item { background: #1e1e1e; color: #fff; border-left-color: var(--accent-yellow); }
+.dark .timeline-item { background: #1e1e1e; color: #fff; }
 .dark nav { background: #000; }
 
-#darkMode {
-    background: none;
-    border: 1px solid white;
-    color: white;
-    padding: 5px 12px;
-    border-radius: 20px;
-    cursor: pointer;
-}
+#darkMode { background: none; border: 1px solid white; color: white; padding: 5px 12px; border-radius: 20px; cursor: pointer; }
 
-/* SLIDER */
-.slider { max-width: 700px; margin: auto; border-radius: 15px; overflow: hidden; }
-.slide { width: 100%; display: none; animation: fadeEffect 1s; }
-@keyframes fadeEffect { from {opacity: 0.4;} to {opacity: 1;} }
+footer { text-align: center; padding: 30px; background: #111; color: white; }
+
+@media(max-width:768px){
+    nav { flex-direction: column; gap: 15px; }
+    section { padding: 60px 5%; }
+}
