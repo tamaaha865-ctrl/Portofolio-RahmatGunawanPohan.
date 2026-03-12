@@ -20,7 +20,7 @@
 body {
     background: var(--bg-light);
     color: var(--text-dark);
-    transition: var(--transition); /* Efek transisi global */
+    transition: var(--transition);
     line-height: 1.6;
 }
 
@@ -35,7 +35,6 @@ nav {
     position: sticky;
     top: 0;
     z-index: 1000;
-    transition: var(--transition);
 }
 
 nav ul {
@@ -50,23 +49,20 @@ nav a {
     transition: 0.3s;
 }
 
-nav a:hover {
-    color: var(--accent-yellow);
-}
+nav a:hover { color: var(--accent-yellow); }
 
 /* HERO SECTION */
 .hero {
     text-align: center;
     padding: 120px 20px;
-    /* Menggunakan gradasi hijau agar lebih relevan dengan bidang perkebunan */
     background: linear-gradient(135deg, var(--primary-green), var(--light-green));
     color: white;
-    clip-path: ellipse(150% 100% at 50% 0%); /* Efek lengkung modern */
+    clip-path: ellipse(150% 100% at 50% 0%);
 }
 
 .profile {
-    width: 140px;
-    height: 140px;
+    width: 150px;
+    height: 150px;
     object-fit: cover;
     border-radius: 50%;
     margin-bottom: 20px;
@@ -74,9 +70,7 @@ nav a:hover {
     transition: transform 0.5s;
 }
 
-.profile:hover {
-    transform: scale(1.1) rotate(5deg);
-}
+.profile:hover { transform: scale(1.1); }
 
 .btn {
     display: inline-block;
@@ -88,61 +82,11 @@ nav a:hover {
     border-radius: 50px;
     font-weight: 600;
     transition: 0.3s ease;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
 }
 
-.btn:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 8px 20px rgba(0,0,0,0.3);
-}
+/* TIMELINE & ACHIEVEMENTS */
+section { padding: 80px 10%; }
 
-/* SECTION */
-section {
-    padding: 80px 10%;
-}
-
-/* SLIDER */
-.slider {
-    max-width: 700px;
-    margin: auto;
-    overflow: hidden;
-    border-radius: 15px;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-}
-
-.slide {
-    width: 100%;
-    display: none;
-    animation: fadeEffect 1s; /* Animasi transisi antar gambar */
-}
-
-@keyframes fadeEffect {
-    from {opacity: 0.4;}
-    to {opacity: 1;}
-}
-
-/* SKILL BAR */
-.skill {
-    margin-top: 25px;
-}
-
-.bar {
-    background: #ddd;
-    height: 12px;
-    border-radius: 10px;
-    overflow: hidden;
-    margin-top: 8px;
-}
-
-.bar span {
-    display: block;
-    height: 100%;
-    background: var(--light-green);
-    border-radius: 10px;
-    transition: width 2s cubic-bezier(0.1, 0.5, 0.5, 1);
-}
-
-/* TIMELINE */
 .timeline-item {
     background: white;
     padding: 25px;
@@ -153,49 +97,39 @@ section {
     transition: var(--transition);
 }
 
-.timeline-item:hover {
-    transform: translateX(10px);
+/* BUTTON GROUP UNTUK PDF */
+.button-group {
+    display: flex;
+    gap: 10px;
+    margin-top: 15px;
+    flex-wrap: wrap;
 }
 
-/* GALLERY */
-.gallery {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 20px;
-}
-
-.gallery img {
-    width: 100%;
-    height: 200px;
-    object-fit: cover;
-    border-radius: 10px;
-    transition: 0.4s ease;
-}
-
-.gallery img:hover {
-    transform: scale(1.05) translateY(-5px);
-    box-shadow: 0 10px 20px rgba(0,0,0,0.2);
-}
-
-/* FOOTER */
-footer {
-    text-align: center;
-    padding: 30px;
-    background: #111;
+.btn-sm {
+    display: inline-block;
+    padding: 8px 16px;
+    background: var(--primary-green);
     color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    transition: 0.3s ease;
+}
+
+.btn-naskah { background: var(--light-green); }
+
+.btn-sm:hover {
+    background: var(--accent-yellow);
+    color: var(--primary-green);
+    transform: translateY(-2px);
 }
 
 /* DARK MODE CLASS */
-.dark {
-    background: #121212;
-    color: #f4f4f4;
-}
-
+.dark { background: #121212; color: #f4f4f4; }
+.dark .timeline-item { background: #1e1e1e; color: #fff; border-left-color: var(--accent-yellow); }
 .dark nav { background: #000; }
-.dark .timeline-item { background: #1e1e1e; color: #fff; }
-.dark section { background: #121212; }
 
-/* Tombol Dark Mode */
 #darkMode {
     background: none;
     border: 1px solid white;
@@ -203,20 +137,9 @@ footer {
     padding: 5px 12px;
     border-radius: 20px;
     cursor: pointer;
-    transition: 0.3s;
 }
 
-#darkMode:hover {
-    background: white;
-    color: black;
-}
-
-/* MOBILE */
-@media(max-width:768px){
-    nav {
-        flex-direction: column;
-        gap: 15px;
-        padding: 20px;
-    }
-    section { padding: 60px 5%; }
-}
+/* SLIDER */
+.slider { max-width: 700px; margin: auto; border-radius: 15px; overflow: hidden; }
+.slide { width: 100%; display: none; animation: fadeEffect 1s; }
+@keyframes fadeEffect { from {opacity: 0.4;} to {opacity: 1;} }
