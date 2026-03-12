@@ -1,36 +1,21 @@
-// SLIDER DENGAN TRANSISI HALUS [cite: 4, 5]
+// SLIDER OTOMATIS
 let slides = document.querySelectorAll(".slide");
 let index = 0;
 
 function showSlide() {
-    // Sembunyikan semua slide
-    slides.forEach(slide => {
-        slide.style.display = "none";
-    });
-
+    slides.forEach(slide => { slide.style.display = "none"; });
     index++;
-    // Reset index jika melebihi jumlah slide
     if (index > slides.length) { index = 1; }
-
-    // Tampilkan slide aktif
     if (slides.length > 0) {
         slides[index - 1].style.display = "block";
     }
-
-    // Ganti slide setiap 3 detik
-    setTimeout(showSlide, 3000);
+    setTimeout(showSlide, 3000); // Ganti gambar setiap 3 detik
 }
 
-// Jalankan slider saat halaman dimuat
-document.addEventListener("DOMContentLoaded", showSlide);
-
-// DARK MODE DENGAN INTERAKSI IKON [cite: 11]
+// DARK MODE
 const btn = document.getElementById("darkMode");
-
 btn.onclick = function() {
     document.body.classList.toggle("dark");
-    
-    // Memberikan feedback visual pada tombol
     if (document.body.classList.contains("dark")) {
         btn.innerHTML = "☀️ Light";
     } else {
@@ -38,7 +23,7 @@ btn.onclick = function() {
     }
 };
 
-// Smooth Scroll untuk Navigasi
+// SMOOTH SCROLL (Navigasi Halus)
 document.querySelectorAll('nav a').forEach(anchor => {
     anchor.addEventListener('click', function(e) {
         e.preventDefault();
@@ -48,3 +33,6 @@ document.querySelectorAll('nav a').forEach(anchor => {
         });
     });
 });
+
+// Menjalankan Slider
+document.addEventListener("DOMContentLoaded", showSlide);
