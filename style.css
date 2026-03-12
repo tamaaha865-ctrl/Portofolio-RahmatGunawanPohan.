@@ -1,162 +1,202 @@
+/* Mengambil font modern dari Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
+
 *{
-margin:0;
-padding:0;
-box-sizing:border-box;
-font-family:Arial;
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family: 'Poppins', sans-serif; /* Ganti dari Arial agar lebih elegan  */
+}
+
+:root {
+    --primary-green: #1e5128;
+    --light-green: #4e944f;
+    --accent-yellow: #ffcc00;
+    --bg-light: #fdfdfd;
+    --text-dark: #2c3e50;
+    --transition: 0.3s ease;
 }
 
 body{
-background:#f4f6f9;
-color:#333;
+    background: var(--bg-light); /*  */
+    color: var(--text-dark); /*  */
+    transition: var(--transition);
 }
 
 /* NAVBAR */
-
 nav{
-display:flex;
-justify-content:space-between;
-align-items:center;
-padding:15px 10%;
-background:#111;
-color:white;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:20px 10%; /*  */
+    background: rgba(17, 17, 17, 0.95); /*  */
+    backdrop-filter: blur(10px);
+    color:white;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
 }
 
 nav ul{
-display:flex;
-gap:20px;
-list-style:none;
+    display:flex;
+    gap:25px; /*  */
+    list-style:none;
 }
 
 nav a{
-color:white;
-text-decoration:none;
+    color:white;
+    text-decoration:none;
+    font-weight: 400;
+    transition: var(--transition);
 }
 
-/* HERO */
+nav a:hover {
+    color: var(--accent-yellow);
+}
 
+/* HERO SECTION */
 .hero{
-text-align:center;
-padding:120px 20px;
-background:linear-gradient(120deg,#2c7be5,#00c6ff);
-color:white;
+    text-align:center;
+    padding:150px 20px;
+    /* Gradasi Hijau Perkebunan  */
+    background: linear-gradient(135deg, var(--primary-green) 0%, var(--light-green) 100%);
+    color:white;
+    clip-path: ellipse(150% 100% at 50% 0%); /* Efek lengkung modern */
 }
 
 .profile{
-width:140px;
-border-radius:50%;
-margin-bottom:20px;
+    width:150px;
+    height: 150px;
+    object-fit: cover;
+    border-radius:50%; /*  */
+    margin-bottom:20px;
+    border: 5px solid rgba(255,255,255,0.2);
 }
 
 .btn{
-display:inline-block;
-margin-top:20px;
-padding:12px 25px;
-background:white;
-color:#333;
-text-decoration:none;
-border-radius:5px;
+    display:inline-block;
+    margin-top:25px;
+    padding:12px 35px;
+    background: var(--accent-yellow); /* Kontras agar tidak kaku [cite: 8] */
+    color: var(--primary-green);
+    text-decoration:none;
+    border-radius:50px; /* Lebih bulat/modern [cite: 8] */
+    font-weight: 600;
+    transition: var(--transition);
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+}
+
+.btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(0,0,0,0.3);
 }
 
 /* SECTION */
-
 section{
-padding:60px 10%;
+    padding:80px 10%; /* [cite: 8] */
 }
 
-/* SLIDER */
-
-.slider{
-max-width:600px;
-margin:auto;
+section h2 {
+    text-align: center;
+    margin-bottom: 40px;
+    position: relative;
+    padding-bottom: 10px;
 }
 
-.slide{
-width:100%;
-display:none;
-border-radius:10px;
+section h2::after {
+    content: '';
+    width: 50px;
+    height: 3px;
+    background: var(--light-green);
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
 }
 
-/* SKILL */
-
+/* SKILL BAR */
 .skill{
-margin-top:20px;
+    margin-top:25px; /* [cite: 8] */
 }
 
 .bar{
-background:#ddd;
-height:10px;
-border-radius:5px;
+    background:#eee; /* [cite: 8] */
+    height:14px;
+    border-radius:10px;
+    overflow: hidden;
+    margin-top: 8px;
 }
 
 .bar span{
-display:block;
-height:10px;
-background:#2c7be5;
-border-radius:5px;
+    display:block;
+    height:100%; /*  */
+    background: linear-gradient(90deg, var(--primary-green), var(--light-green)); /*  */
+    border-radius:10px;
 }
 
-/* TIMELINE */
-
+/* TIMELINE/EXPERIENCE */
 .timeline-item{
-background:white;
-padding:20px;
-margin:10px 0;
-border-left:5px solid #2c7be5;
+    background:white;
+    padding:25px;
+    margin:20px 0;
+    border-left:6px solid var(--primary-green); /*  */
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+    transition: var(--transition);
+}
+
+.timeline-item:hover {
+    transform: translateX(10px);
+    box-shadow: 0 6px 15px rgba(0,0,0,0.1);
 }
 
 /* GALLERY */
-
 .gallery{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
-gap:20px;
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr)); /*  */
+    gap:20px;
 }
 
 .gallery img{
-width:100%;
-border-radius:10px;
-transition:0.3s;
-}
-
-.gallery img:hover{
-transform:scale(1.05);
-}
-
-/* FOOTER */
-
-footer{
-text-align:center;
-padding:20px;
-background:#111;
-color:white;
+    width:100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius:12px;
+    transition: var(--transition); /*  */
 }
 
 /* DARK MODE */
-
-.dark{
-background:#111;
-color:white;
+.dark {
+    background: #121212; /*  */
+    color: #e0e0e0; /*  */
 }
 
-.dark nav{
-background:#000;
+.dark section {
+    background: #121212;
 }
 
-.dark .timeline-item{
-background:#222;
+.dark .timeline-item {
+    background: #1e1e1e; /*  */
+    color: white;
 }
 
-/* MOBILE */
+/* Tombol Dark Mode */
+#darkMode {
+    background: none;
+    border: 1px solid white;
+    color: white;
+    padding: 5px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+}
 
+/* MOBILE RESPONSIVE */
 @media(max-width:768px){
-
-nav{
-flex-direction:column;
-gap:10px;
-}
-
-.hero{
-padding:80px 20px;
-}
-
+    nav{
+        flex-direction:column;
+        padding: 20px;
+    }
+    .hero{
+        padding:100px 20px; /* [cite: 11] */
+    }
 }
