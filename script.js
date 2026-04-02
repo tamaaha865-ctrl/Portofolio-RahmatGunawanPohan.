@@ -1,15 +1,27 @@
 // DARK MODE
 const btn = document.getElementById("darkMode");
-btn.onclick = function() {
-    document.body.classList.toggle("dark");
-    btn.innerHTML = document.body.classList.contains("dark") ? "☀️ Light" : "🌙 Dark";
+
+btn.onclick = () => {
+document.body.classList.toggle("dark");
 };
 
-// SMOOTH SCROLL (Efek geser halus saat klik menu)
-document.querySelectorAll('nav a').forEach(anchor => {
-    anchor.addEventListener('click', function(e) {
-        e.preventDefault();
-        const targetId = this.getAttribute('href');
-        document.querySelector(targetId).scrollIntoView({ behavior: 'smooth' });
-    });
+// ANIMASI SCROLL
+const items = document.querySelectorAll(".timeline-item");
+
+window.addEventListener("scroll", () => {
+items.forEach(item => {
+const position = item.getBoundingClientRect().top;
+
+if(position < window.innerHeight - 100){
+item.style.opacity = "1";
+item.style.transform = "translateY(0)";
+}
+});
+});
+
+// INIT
+items.forEach(item=>{
+item.style.opacity="0";
+item.style.transform="translateY(50px)";
+item.style.transition="0.5s";
 });
