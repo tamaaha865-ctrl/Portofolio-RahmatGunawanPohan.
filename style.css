@@ -28,9 +28,18 @@ nav a:hover { color: var(--accent-yellow); }
     color: white; clip-path: ellipse(150% 100% at 50% 0%);
 }
 
-.profile {
-    width: 150px; height: 150px; object-fit: cover; border-radius: 50%;
-    margin-bottom: 20px; border: 4px solid rgba(255,255,255,0.3); transition: 0.5s;
+.profile{
+width:220px;   /* sebelumnya 150px */
+height:220px;  /* biar bulat sempurna */
+object-fit:cover;
+border-radius:50%;
+margin-bottom:20px;
+box-shadow:0 10px 30px rgba(0,0,0,0.3);
+transition:0.3s;
+}
+
+.profile:hover{
+transform:scale(1.05);
 }
 
 .profile:hover { transform: scale(1.1); }
