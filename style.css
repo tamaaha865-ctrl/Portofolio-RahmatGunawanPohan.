@@ -1,36 +1,95 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
 
-*{ margin: 0; padding: 0; box-sizing: border-box; font-family: 'Poppins', sans-serif; }
-
-:root {
-    --primary-green: #1e5128;
-    --light-green: #4e944f;
-    --accent-yellow: #ffcc00;
-    --bg-light: #fdfdfd;
-    --text-dark: #333;
-    --transition: all 0.5s ease;
+/* =========================
+GLOBAL
+========================= */
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Poppins', sans-serif;
 }
 
-body { background: var(--bg-light); color: var(--text-dark); transition: var(--transition); line-height: 1.6; }
-
-nav {
-    display: flex; justify-content: space-between; align-items: center;
-    padding: 15px 10%; background: #111; color: white; position: sticky; top: 0; z-index: 1000;
+:root{
+--primary-green:#1e5128;
+--light-green:#4e944f;
+--accent-yellow:#ffcc00;
+--bg-light:#fdfdfd;
+--text-dark:#333;
+--transition:all 0.5s ease;
 }
 
-nav ul { display: flex; gap: 20px; list-style: none; }
-nav a { color: white; text-decoration: none; transition: 0.3s; }
-nav a:hover { color: var(--accent-yellow); }
+body{
+background:var(--bg-light);
+color:var(--text-dark);
+line-height:1.6;
+transition:var(--transition);
+}
 
-.hero {
-    text-align: center; padding: 120px 20px;
-    background: linear-gradient(135deg, var(--primary-green), var(--light-green));
-    color: white; clip-path: ellipse(150% 100% at 50% 0%);
+/* =========================
+NAVBAR
+========================= */
+nav{
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:15px 10%;
+background:#111;
+color:white;
+position:sticky;
+top:0;
+z-index:1000;
+transition:0.3s;
+}
+
+nav:hover{
+background:rgba(0,0,0,0.85);
+}
+
+nav ul{
+display:flex;
+gap:20px;
+list-style:none;
+}
+
+nav a{
+color:white;
+text-decoration:none;
+transition:0.3s;
+}
+
+nav a:hover{
+color:var(--accent-yellow);
+}
+
+#darkMode{
+background:none;
+border:1px solid white;
+color:white;
+padding:5px 12px;
+border-radius:20px;
+cursor:pointer;
+}
+
+/* =========================
+HERO SECTION
+========================= */
+.hero{
+text-align:center;
+padding:120px 20px;
+background:linear-gradient(
+135deg,
+var(--primary-green),
+var(--light-green)
+);
+color:white;
+clip-path:ellipse(150% 100% at 50% 0%);
+animation:fadeIn 1.5s ease;
 }
 
 .profile{
-width:220px;   /* sebelumnya 150px */
-height:220px;  /* biar bulat sempurna */
+width:220px;
+height:220px;
 object-fit:cover;
 border-radius:50%;
 margin-bottom:20px;
@@ -39,55 +98,44 @@ transition:0.3s;
 }
 
 .profile:hover{
-transform:scale(1.05);
+transform:scale(1.08);
 }
 
-.profile:hover { transform: scale(1.1); }
-
-.btn {
-    display: inline-block; margin-top: 20px; padding: 12px 30px;
-    background: var(--accent-yellow); color: var(--primary-green);
-    text-decoration: none; border-radius: 50px; font-weight: 600; transition: 0.3s;
-}
-
-section { padding: 80px 10%; }
-
-.timeline-item {
-    background: white; padding: 25px; margin: 20px 0;
-    border-left: 6px solid var(--primary-green); border-radius: 8px;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.05); transition: var(--transition);
-}
-
-.button-group { display: flex; gap: 10px; margin-top: 15px; flex-wrap: wrap; }
-
-.btn-sm {
-    display: inline-block; padding: 8px 16px; background: var(--primary-green);
-    color: white; text-decoration: none; border-radius: 5px; font-size: 0.85rem; font-weight: 600; transition: 0.3s;
-}
-
-.btn-naskah { background: var(--light-green); }
-.btn-sm:hover { background: var(--accent-yellow); color: var(--primary-green); transform: translateY(-2px); }
-
-.skill { margin-top: 20px; }
-.bar { background: #ddd; height: 12px; border-radius: 10px; overflow: hidden; margin-top: 8px; }
-.bar span { display: block; height: 100%; background: var(--light-green); }
-
-.dark { background: #121212; color: #f4f4f4; }
-.dark .timeline-item { background: #1e1e1e; color: #fff; }
-.dark nav { background: #000; }
-
-#darkMode { background: none; border: 1px solid white; color: white; padding: 5px 12px; border-radius: 20px; cursor: pointer; }
-
-footer { text-align: center; padding: 30px; background: #111; color: white; }
-
-@media(max-width:768px){
-    nav { flex-direction: column; gap: 15px; }
-    section { padding: 60px 5%; }
-}
-/* ANIMASI HOVER CARD */
-.timeline-item{
+.btn{
+display:inline-block;
+margin:10px;
+padding:12px 30px;
+background:var(--accent-yellow);
+color:var(--primary-green);
+text-decoration:none;
+border-radius:50px;
+font-weight:600;
 transition:0.3s;
+}
+
+.btn:hover{
+transform:translateY(-3px);
+}
+
+/* =========================
+SECTION
+========================= */
+section{
+padding:80px 10%;
+border-bottom:1px solid #eee;
+}
+
+/* =========================
+TIMELINE CARD
+========================= */
+.timeline-item{
+background:white;
+padding:25px;
+margin:20px 0;
 border-left:5px solid #2c7be5;
+border-radius:8px;
+box-shadow:0 4px 15px rgba(0,0,0,0.05);
+transition:0.3s;
 }
 
 .timeline-item:hover{
@@ -95,23 +143,16 @@ transform:translateY(-5px) scale(1.02);
 box-shadow:0 10px 30px rgba(0,0,0,0.2);
 }
 
-/* HERO LEBIH HIDUP */
-.hero{
-animation:fadeIn 1.5s ease;
+/* =========================
+BUTTON GROUP
+========================= */
+.button-group{
+display:flex;
+gap:10px;
+margin-top:15px;
+flex-wrap:wrap;
 }
 
-@keyframes fadeIn{
-from{
-opacity:0;
-transform:translateY(50px);
-}
-to{
-opacity:1;
-transform:translateY(0);
-}
-}
-
-/* BUTTON LEBIH MENARIK */
 .btn-sm{
 display:inline-block;
 padding:8px 15px;
@@ -119,7 +160,6 @@ background:#2c7be5;
 color:white;
 border-radius:20px;
 text-decoration:none;
-margin:5px 5px 0 0;
 transition:0.3s;
 }
 
@@ -128,65 +168,151 @@ background:#00c6ff;
 transform:scale(1.1);
 }
 
-/* SECTION SPACING BIAR RAPI */
-section{
-padding:80px 10%;
-border-bottom:1px solid #eee;
+.btn-naskah{
+background:var(--light-green);
 }
 
-/* NAVBAR EFFECT */
-nav{
-transition:0.3s;
+/* =========================
+SKILL BAR
+========================= */
+.skill{
+margin-top:20px;
 }
 
-nav:hover{
-background:rgba(0,0,0,0.85);
+.bar{
+background:#ddd;
+height:12px;
+border-radius:10px;
+overflow:hidden;
+margin-top:8px;
 }
-/* CONTACT ICONS */
+
+.bar span{
+display:block;
+height:100%;
+background:var(--light-green);
+}
+
+/* =========================
+CONTACT ICONS
+========================= */
 .contact-icons{
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    gap:20px;
-    margin-top:30px;
-    flex-wrap:wrap;
+display:flex;
+justify-content:center;
+align-items:center;
+gap:20px;
+margin-top:30px;
+flex-wrap:wrap;
 }
 
 .contact-icons a{
-    width:60px;
-    height:60px;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    background:#2c7be5;
-    color:white;
-    border-radius:50%;
-    font-size:28px;
-    text-decoration:none;
-    transition:0.3s;
+width:60px;
+height:60px;
+display:flex;
+justify-content:center;
+align-items:center;
+border-radius:50%;
+color:white;
+font-size:28px;
+text-decoration:none;
+transition:0.3s;
+}
+
+/* Email */
+.contact-icons a:nth-child(1){
+background:#ea4335;
+}
+
+/* WhatsApp */
+.contact-icons a:nth-child(2){
+background:#25D366;
+}
+
+/* LinkedIn */
+.contact-icons a:nth-child(3){
+background:#0A66C2;
+}
+
+/* Instagram */
+.contact-icons a:nth-child(4){
+background:#E4405F;
+}
+
+/* CV PDF */
+.contact-icons a:nth-child(5){
+background:#d32f2f;
 }
 
 .contact-icons a:hover{
-    transform:translateY(-5px) scale(1.1);
-    background:#00c6ff;
-    box-shadow:0 10px 20px rgba(0,0,0,0.2);
-}
-.contact-icons a:nth-child(1){
-    background:#ea4335; /* Email */
+transform:translateY(-5px) scale(1.1);
+box-shadow:0 10px 20px rgba(0,0,0,0.2);
 }
 
-.contact-icons a:nth-child(2){
-    background:#25D366; /* WhatsApp */
+/* =========================
+DARK MODE
+========================= */
+.dark{
+background:#121212;
+color:#f4f4f4;
 }
 
-.contact-icons a:nth-child(3){
-    background:#0A66C2; /* LinkedIn */
+.dark .timeline-item{
+background:#1e1e1e;
+color:#fff;
 }
 
-.contact-icons a:nth-child(4){
-    background:#E4405F; /* Instagram */
+.dark nav{
+background:#000;
 }
 
-.contact-icons a:nth-child(5){
-    background:#d32f2f; /* PDF */
+/* =========================
+FOOTER
+========================= */
+footer{
+text-align:center;
+padding:30px;
+background:#111;
+color:white;
+}
+
+/* =========================
+ANIMATION
+========================= */
+@keyframes fadeIn{
+from{
+opacity:0;
+transform:translateY(50px);
+}
+
+```
+to{
+    opacity:1;
+    transform:translateY(0);
+}
+```
+
+}
+
+/* =========================
+RESPONSIVE
+========================= */
+@media(max-width:768px){
+
+```
+nav{
+    flex-direction:column;
+    gap:15px;
+}
+
+section{
+    padding:60px 5%;
+}
+
+.contact-icons a{
+    width:50px;
+    height:50px;
+    font-size:22px;
+}
+```
+
 }
